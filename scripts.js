@@ -18,12 +18,20 @@ function update(){
     if (miles && targetMiles && maxMiles){
         target.textContent = "Target: " + (targetDecimal).toFixed(2) + "% of " + maxMiles + " miles (" + targetMiles.toFixed(2) + " miles)";
         milage.textContent = "Current milage: " + milesDecimal.toFixed(2) + "% of " + maxMiles + " miles (" + miles + " miles)";
-        milesDifference.textContent = "You are currently " + (miles - targetMiles).toFixed(2) + " miles over par";
+        if (miles - targetMiles > 0){
+            milesDifference.textContent = "You are currently " + (miles - targetMiles).toFixed(2) + " miles over par";
+        } else{
+            milesDifference.textContent = "You are currently " + Math.abs(miles-targetMiles).toFixed(2) + " miles under par";
+        }
     }
 }
 
 function calculate(){
-    dateDifference = (currentDate.getTime() - startDate.getTime()) / (1000*60*60*24);
+    try{
+        dateDifference = (currentDate.getTime() - startDate.getTime()) / (1000*60*60*24);
+    } catch {
+        dateDifference = 0;
+    }
     targetDecimal = dateDifference / 365.25 * 100;
     targetMiles = dateDifference / 365.25 * 3000;
     milesDecimal = miles/maxMiles * 100;
