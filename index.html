@@ -3,24 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Joseph Smith Portfolio</title>
+    <title>Milage Calculator</title>
     <link rel="stylesheet" href="styles.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
 </head>
     <body>
-        <p id="target"></p>
-        <p id="milage"></p>
-        <p id="difference"></p>
+        <h1>Milage Calculator</h1><br>
 
-        <label for="miles">Miles:</label>
+        <label for="date">Insurance Start Date:</label>
+        <input type="date" id="date"><br>
+
+        <label for="miles">Current Miles:</label>
         <input type="number" id="miles"><br>
 
         <label for="maxMiles">Maximum Milage:</label>
         <input type="number" id="maxMiles"><br>
 
-        <label for="date">Insurance Start Date:</label>
-        <input type="date" id="date">
+        <p id="target"></p>
+        <p id="milage"></p>
+        <p id="difference"></p>
+
         <script src="scripts.js"></script>
     </body>
 </html>
