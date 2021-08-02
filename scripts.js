@@ -1,5 +1,4 @@
 const target = document.getElementById('target');
-const milage = document.getElementById('milage');
 const milesDifference = document.getElementById('difference');
 const currentDate = new Date();
 
@@ -17,7 +16,6 @@ function update(){
     calculate();
     if (miles && targetMiles && maxMiles){
         target.textContent = "Target: " + (targetDecimal).toFixed(2) + "% of " + maxMiles + " miles (" + targetMiles.toFixed(2) + " miles)";
-        milage.textContent = "Current milage: " + milesDecimal.toFixed(2) + "% of " + maxMiles + " miles (" + miles + " miles)";
         if (miles - targetMiles > 0){
             milesDifference.textContent = "You are currently " + (miles - targetMiles).toFixed(2) + " miles over par";
         } else{
@@ -33,7 +31,7 @@ function calculate(){
         dateDifference = 0;
     }
     targetDecimal = dateDifference / 365.25 * 100;
-    targetMiles = dateDifference / 365.25 * 3000;
+    targetMiles = dateDifference / 365.25 * maxMiles;
     milesDecimal = miles/maxMiles * 100;
     differenceDecimal = milesDecimal - targetDecimal;
 }
